@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.4'
 gem 'rest-client'
 gem 'nokogiri'   #특정문서형태를 쉽게 접근할수있게 다듬어줌
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
