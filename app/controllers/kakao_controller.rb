@@ -8,7 +8,8 @@ class KakaoController < ApplicationController
   end
   
   def message
-    @user_msg = params[:content]
+    @user_msg = params[:content]  #사용자가 보낸 내용은 content에 담아서 전송됨
+    
     @text = "기본 테스트"
     if @user_msg == "로또"
       @text = "행운의 번호는 : " + (1..45).to_a.sample(6).sort.to_s
@@ -17,13 +18,13 @@ class KakaoController < ApplicationController
     elsif @user_msg == "고양이"
       @url = "http://thecatapi.com/api/images/get?format=xml&type=jpg"
       @cat_xml = RestClient.get(@url)
-      @cat_doc = Nokogiri::XML(@cat_xml)
-      @cat_url = @cat_doc.xpath("//url").text
+      @cat_doc = Nokogiri::XML(@cat_xml)  
+      @cat_url = @cat_doc.xpath("//url").text  # Search html/xml document
       #@text = @cat_url
     end
     
     @return_msg = {
-      :text => @text
+      :text => @text  
     }
     
     @return_msg_photo = {
@@ -41,6 +42,7 @@ class KakaoController < ApplicationController
         :buttons => ["로또", "메뉴", "고양이"]
     }
     
+    # 응답
     if @user_msg == "고양이"
       @result = {
          :message => @return_msg_photo,
