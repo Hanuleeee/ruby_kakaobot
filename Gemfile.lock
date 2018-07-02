@@ -175,7 +175,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri
-  pg (~> 0.18)
+  pg (~> 0.21)
   rails (= 4.2.5)
   rails_12factor
   rest-client
